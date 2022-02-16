@@ -4,7 +4,7 @@ CONVERTER = sbcl --noinform --load pnm2c.lisp
 
 all: title.h button.h mouse.h spin.h bat.h tunnel.h cheese.h
 	lua5.2 generate.lua > tables.h
-	cl65 -O -C c64.cfg -m $(NAME).map --lib c64.lib $(SRC) -o $(NAME)
+	cl65 -t c64 $(SRC) -o $(NAME)
 	x64 +confirmexit $(NAME)
 
 %.ppm: pictures/%.png
