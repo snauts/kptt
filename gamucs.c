@@ -161,7 +161,7 @@ unsigned char mask_bits[] = {
 };
 
 #if OPTIMIZE_ASM
-extern void set_sprite_pos(char num, unsigned short x, unsigned char y);
+extern void cdecl set_sprite_pos(char num, unsigned short x, unsigned char y);
 #else
 static void set_sprite_pos(char num, unsigned short x, unsigned char y) {
     if (x & 0x100) {
