@@ -5,7 +5,7 @@ CONVERTER = sbcl --noinform --load pnm2c.lisp
 all: title.h button.h mouse.h spin.h bat.h tunnel.h cheese.h
 	lua5.2 generate.lua > tables.h
 	cl65 -t c64 $(SRC) -o $(NAME)
-	x64 +confirmexit $(NAME)
+	x64 +confirmonexit $(NAME)
 
 %.ppm: pictures/%.png
 	convert -compress none $< $@
