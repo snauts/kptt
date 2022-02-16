@@ -7,71 +7,71 @@ all: title.h button.h mouse.h spin.h bat.h tunnel.h cheese.h
 	cl65 -O -C c64.cfg -m $(NAME).map --lib c64.lib $(SRC) -o $(NAME)
 	x64 +confirmexit $(NAME)
 
-%.pnm: pictures/%.png
+%.ppm: pictures/%.png
 	convert -compress none $< $@
 
-tunnel.h: tunnel.pnm
-	$(CONVERTER) --eval '(convert "tunnel.pnm" "tunnel.h")'
+tunnel.h: tunnel.ppm
+	$(CONVERTER) --eval '(convert "tunnel.ppm" "tunnel.h")'
 
-cheese.h: cheese.pnm
-	$(CONVERTER) --eval '(convert "cheese.pnm" "cheese.h")'
+cheese.h: cheese.ppm
+	$(CONVERTER) --eval '(convert "cheese.ppm" "cheese.h")'
 
-title.h: title.pnm
+title.h: title.ppm
 	$(CONVERTER) --eval '(add-color #(0 0 0))' \
 		     --eval '(add-color #(255 168 0))' \
 		     --eval '(add-color #(255 216 0))' \
 		     --eval '(add-color #(64 64 64))' \
-                     --eval '(convert "title.pnm" "title.h")'
+                     --eval '(convert "title.ppm" "title.h")'
 
-button.h: button-z.pnm button-x.pnm \
-          button-up.pnm button-down.pnm arrow.pnm
-	$(CONVERTER) --eval '(add-file "button-up.pnm")' \
-		     --eval '(add-file "button-down.pnm")' \
-		     --eval '(add-file "button-z.pnm")' \
-		     --eval '(add-file "button-x.pnm")' \
-		     --eval '(add-file "arrow.pnm")' \
+button.h: button-z.ppm button-x.ppm \
+          button-up.ppm button-down.ppm arrow.ppm
+	$(CONVERTER) --eval '(add-file "button-up.ppm")' \
+		     --eval '(add-file "button-down.ppm")' \
+		     --eval '(add-file "button-z.ppm")' \
+		     --eval '(add-file "button-x.ppm")' \
+		     --eval '(add-file "arrow.ppm")' \
 		     --eval '(straight "button.h")'
 
-mouse.h: mouse-0.pnm mouse-1.pnm mouse-2.pnm mouse-3.pnm \
-         mouse-4.pnm mouse-5.pnm mouse-6.pnm mouse-7.pnm
-	$(CONVERTER) --eval '(add-file "mouse-0.pnm")' \
-		     --eval '(add-file "mouse-1.pnm")' \
-		     --eval '(add-file "mouse-2.pnm")' \
-		     --eval '(add-file "mouse-3.pnm")' \
-		     --eval '(add-file "mouse-4.pnm")' \
-		     --eval '(add-file "mouse-5.pnm")' \
-		     --eval '(add-file "mouse-6.pnm")' \
-		     --eval '(add-file "mouse-7.pnm")' \
+mouse.h: mouse-0.ppm mouse-1.ppm mouse-2.ppm mouse-3.ppm \
+         mouse-4.ppm mouse-5.ppm mouse-6.ppm mouse-7.ppm
+	$(CONVERTER) --eval '(add-file "mouse-0.ppm")' \
+		     --eval '(add-file "mouse-1.ppm")' \
+		     --eval '(add-file "mouse-2.ppm")' \
+		     --eval '(add-file "mouse-3.ppm")' \
+		     --eval '(add-file "mouse-4.ppm")' \
+		     --eval '(add-file "mouse-5.ppm")' \
+		     --eval '(add-file "mouse-6.ppm")' \
+		     --eval '(add-file "mouse-7.ppm")' \
 		     --eval '(straight "mouse.h")'
 
-spin.h: spin-0.pnm spin-1.pnm spin-2.pnm spin-3.pnm \
-        spin-4.pnm spin-5.pnm spin-6.pnm spin-7.pnm
-	$(CONVERTER) --eval '(add-file "spin-0.pnm")' \
-		     --eval '(add-file "spin-1.pnm")' \
-		     --eval '(add-file "spin-2.pnm")' \
-		     --eval '(add-file "spin-3.pnm")' \
-		     --eval '(add-file "spin-4.pnm")' \
-		     --eval '(add-file "spin-5.pnm")' \
-		     --eval '(add-file "spin-6.pnm")' \
-		     --eval '(add-file "spin-7.pnm")' \
+spin.h: spin-0.ppm spin-1.ppm spin-2.ppm spin-3.ppm \
+        spin-4.ppm spin-5.ppm spin-6.ppm spin-7.ppm
+	$(CONVERTER) --eval '(add-file "spin-0.ppm")' \
+		     --eval '(add-file "spin-1.ppm")' \
+		     --eval '(add-file "spin-2.ppm")' \
+		     --eval '(add-file "spin-3.ppm")' \
+		     --eval '(add-file "spin-4.ppm")' \
+		     --eval '(add-file "spin-5.ppm")' \
+		     --eval '(add-file "spin-6.ppm")' \
+		     --eval '(add-file "spin-7.ppm")' \
 		     --eval '(straight "spin.h")'
 
-bat.h: bat-0.pnm bat-1.pnm bat-2.pnm bat-3.pnm \
-       bat-4.pnm bat-5.pnm bat-6.pnm bat-7.pnm bat-8.pnm
+bat.h: bat-0.ppm bat-1.ppm bat-2.ppm bat-3.ppm \
+       bat-4.ppm bat-5.ppm bat-6.ppm bat-7.ppm bat-8.ppm
 	$(CONVERTER) --eval '(add-color #(0 0 0))' \
 		     --eval '(add-color #(60 60 90))' \
 		     --eval '(add-color #(60 90 90))' \
 		     --eval '(add-color #(90 60 60))' \
-	             --eval '(add-file "bat-0.pnm")' \
-	             --eval '(add-file "bat-1.pnm")' \
-	             --eval '(add-file "bat-2.pnm")' \
-	             --eval '(add-file "bat-3.pnm")' \
-	             --eval '(add-file "bat-4.pnm")' \
-	             --eval '(add-file "bat-5.pnm")' \
-	             --eval '(add-file "bat-6.pnm")' \
-	             --eval '(add-file "bat-7.pnm")' \
-	             --eval '(add-file "bat-8.pnm")' \
+	             --eval '(add-file "bat-0.ppm")' \
+	             --eval '(add-file "bat-1.ppm")' \
+	             --eval '(add-file "bat-2.ppm")' \
+	             --eval '(add-file "bat-3.ppm")' \
+	             --eval '(add-file "bat-4.ppm")' \
+	             --eval '(add-file "bat-5.ppm")' \
+	             --eval '(add-file "bat-6.ppm")' \
+	             --eval '(add-file "bat-7.ppm")' \
+	             --eval '(add-file "bat-8.ppm")' \
 		     --eval '(straight "bat.h")'
 
 clean:
-	rm -f *.o *.map *.pnm *.h $(NAME)
+	rm -f *.o *.map *.ppm *.h $(NAME)
