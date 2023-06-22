@@ -780,7 +780,7 @@ static void run_game(void) {
 	    }
 	}
 	else {
-	    benchmark();
+	    // benchmark();
 	}
     } while (!KEY_DOWN(ESC));
 }
