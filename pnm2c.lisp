@@ -104,6 +104,8 @@
   (setf *pixels* (make-array 0 :fill-pointer 0))
   (with-open-file (*input* src :direction :input)
      (read *input*) ; read ID
+     (when (eq #\# (peek-char nil *input*))
+       (read-line *input*))
      (let ((x (read *input*))
 	   (y (read *input*)))
        (read *input*) ; skip 255
