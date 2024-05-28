@@ -10,7 +10,7 @@ all: title.h button.h mouse.h spin.h bat.h tunnel.h cheese.h
 		-write kptt.prg kptt
 
 vice: all
-	x64 +confirmonexit $(NAME)
+	x64 -autostartprgmode 1 +confirmonexit $(NAME)
 
 mame: all
 	mame -w -r 640x480 c64 -flop kptt.d64
