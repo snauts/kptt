@@ -16,7 +16,7 @@ mame: all
 	mame -w -r 640x480 c64 -flop kptt.d64
 
 %.ppm: pictures/%.png
-	@convert -compress none $< $@
+	@magick -compress none $< $@
 
 tunnel.h: tunnel.ppm
 	@echo build TUNNEL
